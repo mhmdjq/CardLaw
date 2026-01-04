@@ -1,117 +1,112 @@
 :root {
-    --bg-dungeon: #1a1515;    /* Dark background */
-    --brick-red: #8a3324;     /* Matches the wall bricks */
-    --gold: #ffcc00;          /* Matches the buttons/crown */
-    --gold-shadow: #b38f00;
-    --royal-blue: #284c8a;    /* Matches the King's robe */
-    --magic-cyan: #00ffff;    /* Matches the magic fire */
-    --parchment: #e3dac9;     /* Old paper color for text areas */
-    --text-dark: #2c2c2c;
-    
+    --bg-dark: #121010;
+    --brick-red: #9e2a2b;
+    --gold: #ffd700;
+    --gold-dim: #b8860b;
+    --magic-blue: #00f0ff;
+    --text-parchment: #e0d8c3;
     --font-header: 'Press Start 2P', cursive;
     --font-body: 'Crimson Text', serif;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-
+/* Base Setup */
 body {
-    background-color: var(--bg-dungeon);
-    color: var(--parchment);
+    background-color: var(--bg-dark);
+    color: var(--text-parchment);
     font-family: var(--font-body);
+    margin: 0; padding: 0;
+    overflow-x: hidden;
+}
+
+/* Typography & Titles */
+h1, h2, h3 { font-family: var(--font-header); text-transform: uppercase; }
+.fire-text {
+    color: var(--brick-red);
+    text-shadow: 0 0 10px #ff4500, 0 0 20px #ff0000;
+    animation: flicker 2s infinite alternate;
 }
 
 /* Navigation */
 nav {
     display: flex; justify-content: space-between; align-items: center;
-    padding: 15px 5%; background: #000; border-bottom: 3px solid var(--brick-red);
-    position: sticky; top: 0; z-index: 100;
+    padding: 20px 5%; background: rgba(0,0,0,0.9); border-bottom: 2px solid var(--brick-red);
+    position: sticky; top: 0; z-index: 1000;
 }
-
-.logo { font-family: var(--font-header); color: #fff; font-size: 1.2rem; }
+.logo { font-family: var(--font-header); color: #fff; font-size: 1rem; }
 .highlight { color: var(--gold); }
-
-.nav-links { list-style: none; display: flex; gap: 20px; }
-.nav-links a { color: #fff; text-decoration: none; font-weight: bold; font-size: 1.2rem; }
-.btn-nav { color: var(--gold) !important; border: 2px solid var(--gold); padding: 5px 15px; border-radius: 4px; }
+.nav-links { display: flex; gap: 20px; list-style: none; }
+.nav-links a { color: #fff; text-decoration: none; font-weight: bold; transition: 0.3s; }
+.nav-links a:hover { color: var(--gold); }
 
 /* Hero Section */
 .hero {
-    height: 80vh;
-    background: url('../assets/your-banner-image.png') no-repeat center center/cover;
-    position: relative;
-    display: flex; justify-content: center; align-items: center; text-align: center;
+    height: 90vh;
+    /* 🔴 ACTION REQUIRED: Put your banner image in 'assets' folder */
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), var(--bg-dark)), url('../assets/banner.png');
+    background-size: cover; background-position: center;
+    display: flex; align-items: center; justify-content: center; text-align: center;
 }
-/* A dark overlay so text pops */
-.overlay {
+.pixel-title { font-size: 2.5rem; line-height: 1.5; margin-bottom: 20px; }
+.rpg-text { font-size: 1.5rem; margin-bottom: 30px; color: #ccc; }
+
+/* The "Scrying Mirror" Video Container */
+.section-dark { padding: 80px 10%; text-align: center; background: #0a0a0a; }
+.video-wrapper-border {
+    border: 5px solid var(--gold-dim);
+    box-shadow: 0 0 20px var(--gold-dim), inset 0 0 20px #000;
+    padding: 10px; background: #000; max-width: 800px; margin: 0 auto;
+    border-radius: 10px;
+}
+.video-responsive {
+    position: relative; padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0; overflow: hidden;
+}
+.video-responsive iframe {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.6);
 }
 
-.hero-content { position: relative; z-index: 2; max-width: 800px; padding: 20px; }
-
-.pixel-title {
-    font-family: var(--font-header); font-size: 3rem; line-height: 1.5;
-    color: #fff; text-shadow: 4px 4px 0px var(--brick-red);
-    margin-bottom: 20px;
+/* Interactive Features Grid */
+.section-light { padding: 80px 10%; background: #1a1a1a; text-align: center; }
+.features-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px; margin-top: 40px;
 }
-.fire-text { color: var(--magic-cyan); text-shadow: 0 0 10px var(--magic-cyan); }
+.feature-card {
+    background: #252525; padding: 30px; border: 2px solid #333;
+    border-radius: 10px; transition: transform 0.3s, border-color 0.3s;
+    cursor: default;
+}
+/* Hover Interactions */
+.feature-card:hover {
+    transform: translateY(-10px); /* Moves up */
+    border-color: var(--gold);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+.icon-box { color: var(--gold); margin-bottom: 15px; transition: transform 0.3s; }
+.feature-card:hover .icon-box { transform: scale(1.2); color: var(--magic-blue); }
 
-.rpg-text { font-size: 1.5rem; margin-bottom: 30px; color: #ddd; }
+/* Download Section */
+.section-final { padding: 100px 20px; text-align: center; background: url('../assets/dungeon-wall.png'); } /* Optional Texture */
+.dungeon-gate {
+    background: rgba(0,0,0,0.8); display: inline-block; padding: 50px;
+    border: 4px solid var(--brick-red); border-radius: 10px;
+}
 
 /* Buttons */
-.btn-gold {
-    display: inline-block; background: var(--gold); color: #000;
-    font-family: var(--font-header); padding: 15px 30px; text-decoration: none;
-    border-bottom: 5px solid var(--gold-shadow); border-radius: 5px;
-    transition: transform 0.1s;
+.btn-gold, .btn-mega {
+    background: var(--gold); color: #000; padding: 15px 30px;
+    font-family: var(--font-header); text-decoration: none; border: none;
+    border-bottom: 4px solid var(--gold-dim); cursor: pointer; transition: 0.2s;
+    display: inline-block; margin-top: 20px;
 }
-.btn-gold:active { transform: translateY(4px); border-bottom: 1px solid var(--gold-shadow); }
+.btn-gold:active, .btn-mega:active { transform: translateY(4px); border-bottom: 0; }
+.btn-mega { font-size: 1.2rem; width: 100%; max-width: 300px; }
 
-.btn-stone {
-    display: inline-block; background: #555; color: #fff;
-    font-family: var(--font-header); padding: 15px 30px; text-decoration: none;
-    border-bottom: 5px solid #333; border-radius: 5px; margin-left: 20px;
-}
-
-/* Sections */
-.parchment-container {
-    background: var(--parchment); color: var(--text-dark);
-    padding: 60px 10%; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
-}
-.parchment-container h2 { font-family: var(--font-header); color: var(--brick-red); margin-bottom: 20px; }
-.stats-panel {
-    background: #fff; padding: 20px; border: 2px solid var(--text-dark);
-    margin-top: 20px; text-align: center;
-}
-.counter { font-family: var(--font-header); font-size: 2rem; color: var(--royal-blue); margin: 10px 0; }
-
-.placeholder-art {
-    width: 100%; height: 300px; background: #333; color: #fff;
-    display: flex; justify-content: center; align-items: center;
-    border: 5px solid var(--brick-red);
+/* Animations */
+@keyframes flicker {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { opacity: 1; }
 }
 
-/* Quest Log */
-.dungeon-section { padding: 60px 10%; text-align: center; background: #222; }
-.dungeon-section h2 { font-family: var(--font-header); color: var(--gold); margin-bottom: 40px; }
-
-.quest-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-.quest-card {
-    background: #333; padding: 20px; border: 2px solid #444; border-radius: 8px;
-}
-.quest-card.complete { border-color: var(--magic-cyan); }
-.quest-card.active { border-color: var(--gold); }
-
-/* Download CTA */
-.final-cta {
-    padding: 80px 20px; text-align: center;
-    background: linear-gradient(to bottom, #1a1515, var(--brick-red));
-}
-.btn-mega {
-    background: var(--royal-blue); color: #fff; border: 4px solid #fff;
-    padding: 20px 40px; font-family: var(--font-header); font-size: 1.2rem;
-    cursor: pointer; margin-top: 20px;
-}
-.btn-mega:hover { background: var(--magic-cyan); color: #000; border-color: #000; }
-
-footer { text-align: center; padding: 20px; background: #000; font-size: 0.9rem; color: #666; }
+.glowing-number { color: var(--magic-blue); font-family: var(--font-header); font-size: 1.5rem; }
