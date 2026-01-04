@@ -3,97 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project: PIXEL | Official Game Site</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@300;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <title>The Unnamed Adventure | Godot Dungeon Crawler</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Crimson+Text:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <div class="scanlines"></div>
-
     <nav>
-        <div class="logo">GODOT<span class="highlight">PROJECT</span></div>
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#roadmap">Updates</a>
-            <a href="#download" class="btn-nav">Download</a>
-        </div>
+        <div class="logo">KING'S<span class="highlight">QUEST</span></div>
+        <ul class="nav-links">
+            <li><a href="#about">Story</a></li>
+            <li><a href="#roadmap">Quest Log</a></li>
+            <li><a href="#download" class="btn-nav">Play Demo</a></li>
+        </ul>
     </nav>
 
     <header class="hero">
+        <div class="overlay"></div>
         <div class="hero-content">
-            <span class="badge">Currently in Alpha v0.1</span>
-            <h1 class="glitch" data-text="THE UNNAMED ADVENTURE">THE UNNAMED ADVENTURE</h1>
-            <p>A 2D Pixel Art Odyssey built with the Godot Engine.</p>
-            <div class="hero-buttons">
-                <a href="#download" class="btn-primary">Play Demo</a>
-                <a href="#about" class="btn-secondary">Learn More</a>
+            <h1 class="pixel-title">THE UNNAMED <br><span class="fire-text">ADVENTURE</span></h1>
+            <p class="rpg-text">Defeat the Card Soldiers. Dethrone the Mad King. Escape the Dungeon.</p>
+            
+            <div class="btn-group">
+                <a href="#download" class="btn-gold">START GAME</a>
+                <a href="#about" class="btn-stone">READ LORE</a>
             </div>
         </div>
     </header>
 
-    <section id="about" class="container">
-        <div class="section-title">
-            <h2>Game Status</h2>
-            <div class="underline"></div>
-        </div>
-        <div class="grid-2">
-            <div class="text-block">
-                <h3>Current State</h3>
-                <p>The core mechanics are implemented. Player movement, basic combat, and the first level tilemaps are complete. The lighting engine is currently being optimized for lower-end devices.</p>
+    <main>
+        <section id="about" class="parchment-container">
+            <div class="content-box">
+                <h2>The Current State</h2>
+                <p>Welcome, Traveler. This game is currently in <strong>Alpha v0.1</strong>. The mechanics are simple: slash through the red brick dungeons and avoid the blue magic traps.</p>
                 
-                <div class="stats-box">
-                    <p>Global Damage Dealt:</p>
-                    <h4 id="damage-counter">0</h4>
+                <div class="stats-panel">
+                    <h3>Global Damage Inflicted</h3>
+                    <div id="damage-counter" class="counter">0000</div>
+                    <small>Total hits by all players</small>
                 </div>
             </div>
-            <div class="visual-block">
-                <div class="game-placeholder">
-                    <span>[Gameplay GIF Here]</span>
+            
+            <div class="image-box">
+                <div class="placeholder-art">
+                    [Place your 'King & Cards' Image Here]
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="roadmap" class="dark-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Development Roadmap</h2>
-                <div class="underline"></div>
-            </div>
-            <div class="timeline">
-                <div class="roadmap-item done">
-                    <span class="status">COMPLETE</span>
-                    <h3>Core Engine</h3>
-                    <p>Godot project setup, player physics, and input handling.</p>
+        <section id="roadmap" class="dungeon-section">
+            <h2>Quest Log (Roadmap)</h2>
+            <div class="quest-grid">
+                <div class="quest-card complete">
+                    <span class="icon">✅</span>
+                    <h3>Dungeon Physics</h3>
+                    <p>Godot Engine movement and wall collisions.</p>
                 </div>
-                <div class="roadmap-item active">
-                    <span class="status">IN PROGRESS</span>
-                    <h3>Combat Update</h3>
-                    <p>Adding enemy AI, hitboxes, and weapon variety.</p>
+                <div class="quest-card active">
+                    <span class="icon">⚔️</span>
+                    <h3>Combat System</h3>
+                    <p>Sword hitboxes and Card Soldier AI.</p>
                 </div>
-                <div class="roadmap-item future">
-                    <span class="status">PLANNED</span>
-                    <h3>The Boss Update</h3>
-                    <p>Level 1 boss fight, cutscenes, and sound effects.</p>
+                <div class="quest-card locked">
+                    <span class="icon">🔒</span>
+                    <h3>The Royal Boss</h3>
+                    <p>Final encounter with the King of Hearts.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="download" class="cta-section">
-        <div class="glitch-box">
-            <h2>Ready to Test?</h2>
-            <p>Download the latest build for Windows, Linux, or MacOS.</p>
-            <button id="downloadBtn" class="btn-mega">DOWNLOAD v0.1</button>
-            <small>Build Size: 150MB • Powered by Godot</small>
-        </div>
-    </section>
+        <section id="download" class="final-cta">
+            <div class="torch-light">
+                <h2>Join the Adventure</h2>
+                <p>Available for Windows & Linux (Godot Export)</p>
+                <button id="downloadBtn" class="btn-mega">DOWNLOAD BUILD v0.1</button>
+            </div>
+        </section>
+    </main>
 
     <footer>
-        <p>&copy; 2026 Indie Dev Studio. Made with Godot.</p>
+        <p>Built with <a href="https://godotengine.org/">Godot</a>. Hosted on GitHub Pages.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
