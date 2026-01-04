@@ -3,19 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Unnamed Adventure | Official Site</title>
+    <title>King's Quest | Official Site</title>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Crimson+Text:wght@600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <div id="particles"></div>
-
     <nav>
-        <div class="logo"><i class="fas fa-dungeon"></i> KING'S<span class="highlight">QUEST</span></div>
+        <div class="logo">KING'S<span class="highlight">QUEST</span></div>
         <ul class="nav-links">
-            <li><a href="#trailer">Trailer</a></li>
+            <li><a href="#video">Trailer</a></li>
             <li><a href="#features">Features</a></li>
             <li><a href="#download" class="btn-nav">Play Demo</a></li>
         </ul>
@@ -24,58 +21,58 @@
     <header class="hero">
         <div class="hero-content">
             <h1 class="pixel-title">THE UNNAMED <br><span class="fire-text">ADVENTURE</span></h1>
-            <p class="rpg-text">Slay the Cards. Dethrone the King.</p>
-            <a href="#download" class="btn-gold">⚔️ START QUEST</a>
+            <p class="rpg-text">Defeat the Card Soldiers. Dethrone the Mad King.</p>
+            <a href="#download" class="btn-gold">⚔️ START GAME</a>
         </div>
     </header>
 
     <main>
-        <section id="trailer" class="section-dark">
+        <section id="video" class="section-dark">
             <h2 class="section-title">The Scrying Mirror</h2>
-            <div class="video-wrapper-border">
-                <div class="video-responsive">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Game Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
+            <div class="video-frame">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </section>
 
-        <section id="features" class="section-light">
-            <h2 class="section-title" style="color:var(--brick-red)">Game Features</h2>
+        <section id="features" class="section-features">
+            <h2 class="section-title">Game Features</h2>
+            
             <div class="features-grid">
+                
                 <div class="feature-card">
-                    <div class="icon-box">
-                        <i class="fas fa-sword fa-3x"></i>
+                    <div class="sprite-container">
+                        <div class="sprite soldier-anim"></div>
                     </div>
                     <h3>Fluid Combat</h3>
-                    <p>Master the blade with precise hitboxes and combos.</p>
+                    <p>Battle against the Queen's army with precise hitboxes.</p>
                 </div>
+
                 <div class="feature-card">
-                    <div class="icon-box">
-                        <i class="fas fa-scroll fa-3x"></i>
+                    <div class="sprite-container">
+                        <div class="sprite jester-anim"></div>
                     </div>
-                    <h3>Deep Lore</h3>
-                    <p>Uncover the secrets of the crumbled kingdom.</p>
+                    <h3>Dark Humor</h3>
+                    <p>Meet NPCs who laugh in the face of danger.</p>
                 </div>
+
                 <div class="feature-card">
-                    <div class="icon-box">
-                        <i class="fas fa-skull fa-3x"></i>
+                    <div class="sprite-container">
+                        <div class="sprite king-anim"></div>
                     </div>
                     <h3>Epic Bosses</h3>
-                    <p>Challenge the Royal Court in intense duels.</p>
+                    <p>Challenge the Mad King in his throne room.</p>
                 </div>
+
             </div>
         </section>
 
         <section id="download" class="section-final">
-            <div class="dungeon-gate">
+            <div class="dungeon-box">
                 <h2>Join the Beta</h2>
-                <p>Help us test the mechanics and break the game.</p>
-                
-                <div class="stat-box">
+                <div class="stat-row">
                     <span>Global Damage Dealt:</span>
-                    <span id="damage-counter" class="glowing-number">0</span>
+                    <span id="damage-counter" class="damage-num">0000</span>
                 </div>
-
                 <button id="downloadBtn" class="btn-mega">DOWNLOAD v0.1</button>
             </div>
         </section>
