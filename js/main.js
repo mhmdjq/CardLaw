@@ -1,41 +1,46 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // --- 1. User Information Integration ---
-    // Using your saved 'damage' variable as the base value.
-    // If not present, default to 1.
+
+    // 1. Data Layer: Damage Counter
     if (typeof window.damage === 'undefined') {
         window.damage = 1; 
     }
 
     const damageDisplay = document.getElementById('damage-counter');
     
-    // Function to update the number on screen
-    const updateStats = () => {
-        damageDisplay.innerText = window.damage.toLocaleString();
+    // Smooth Count-Up Animation
+    const animateValue = (obj, start, end, duration) => {
+        let startTimestamp = null;
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            obj.innerHTML = Math.floor(progress * (end - start) + start);
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            }
+        };
+        window.requestAnimationFrame(step);
     };
-    
-    // Initial Load
-    updateStats();
 
-    // --- 2. Button Interaction ---
-    const downloadBtn = document.getElementById('downloadBtn');
+    // Run animation on load (from 0 to your stored damage value)
+    animateValue(damageDisplay, 0, window.damage, 2000);
 
-    downloadBtn.addEventListener('click', () => {
-        // "Hit" effect when clicking download
-        window.damage += 50; // Critical hit!
-        updateStats();
-
-        // Visual feedback
-        const originalText = downloadBtn.innerText;
-        downloadBtn.innerText = "PREPARING SPELL...";
-        downloadBtn.style.backgroundColor = "var(--magic-cyan)";
-        downloadBtn.style.color = "black";
+    // 2. Download Button Logic
+    const dlBtn = document.getElementById('downloadBtn');
+    dlBtn.addEventListener('click', () => {
+        // Increase damage visually
+        let oldVal = window.damage;
+        window.damage += 100;
+        
+        // Flash Effect
+        dlBtn.style.background = "#fff"; 
+        dlBtn.innerText = "ATTACKING SERVER...";
+        
+        // Animate the number jump
+        animateValue(damageDisplay, oldVal, window.damage, 500);
 
         setTimeout(() => {
-            downloadBtn.innerText = originalText;
-            downloadBtn.style.backgroundColor = ""; // Revert
-            downloadBtn.style.color = ""; 
-            alert("Thanks for playing the demo! (Download simulated)");
-        }, 1500);
+            dlBtn.style.background = "var(--gold)";
+            dlBtn.innerText = "DOWNLOAD STARTED";
+        }, 800);
     });
 });
