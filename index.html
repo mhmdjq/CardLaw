@@ -3,86 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Unnamed Adventure | Godot Dungeon Crawler</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Crimson+Text:wght@400;700&display=swap" rel="stylesheet">
+    <title>The Unnamed Adventure | Official Site</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Crimson+Text:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+    <div id="particles"></div>
+
     <nav>
-        <div class="logo">KING'S<span class="highlight">QUEST</span></div>
+        <div class="logo"><i class="fas fa-dungeon"></i> KING'S<span class="highlight">QUEST</span></div>
         <ul class="nav-links">
-            <li><a href="#about">Story</a></li>
-            <li><a href="#roadmap">Quest Log</a></li>
+            <li><a href="#trailer">Trailer</a></li>
+            <li><a href="#features">Features</a></li>
             <li><a href="#download" class="btn-nav">Play Demo</a></li>
         </ul>
     </nav>
 
     <header class="hero">
-        <div class="overlay"></div>
         <div class="hero-content">
             <h1 class="pixel-title">THE UNNAMED <br><span class="fire-text">ADVENTURE</span></h1>
-            <p class="rpg-text">Defeat the Card Soldiers. Dethrone the Mad King. Escape the Dungeon.</p>
-            
-            <div class="btn-group">
-                <a href="#download" class="btn-gold">START GAME</a>
-                <a href="#about" class="btn-stone">READ LORE</a>
-            </div>
+            <p class="rpg-text">Slay the Cards. Dethrone the King.</p>
+            <a href="#download" class="btn-gold">⚔️ START QUEST</a>
         </div>
     </header>
 
     <main>
-        <section id="about" class="parchment-container">
-            <div class="content-box">
-                <h2>The Current State</h2>
-                <p>Welcome, Traveler. This game is currently in <strong>Alpha v0.1</strong>. The mechanics are simple: slash through the red brick dungeons and avoid the blue magic traps.</p>
+        <section id="trailer" class="section-dark">
+            <h2 class="section-title">The Scrying Mirror</h2>
+            <div class="video-wrapper-border">
+                <div class="video-responsive">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Game Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="section-light">
+            <h2 class="section-title" style="color:var(--brick-red)">Game Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon-box">
+                        <i class="fas fa-sword fa-3x"></i>
+                    </div>
+                    <h3>Fluid Combat</h3>
+                    <p>Master the blade with precise hitboxes and combos.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box">
+                        <i class="fas fa-scroll fa-3x"></i>
+                    </div>
+                    <h3>Deep Lore</h3>
+                    <p>Uncover the secrets of the crumbled kingdom.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box">
+                        <i class="fas fa-skull fa-3x"></i>
+                    </div>
+                    <h3>Epic Bosses</h3>
+                    <p>Challenge the Royal Court in intense duels.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="download" class="section-final">
+            <div class="dungeon-gate">
+                <h2>Join the Beta</h2>
+                <p>Help us test the mechanics and break the game.</p>
                 
-                <div class="stats-panel">
-                    <h3>Global Damage Inflicted</h3>
-                    <div id="damage-counter" class="counter">0000</div>
-                    <small>Total hits by all players</small>
+                <div class="stat-box">
+                    <span>Global Damage Dealt:</span>
+                    <span id="damage-counter" class="glowing-number">0</span>
                 </div>
-            </div>
-            
-            <div class="image-box">
-                <div class="placeholder-art">
-                    [Place your 'King & Cards' Image Here]
-                </div>
-            </div>
-        </section>
 
-        <section id="roadmap" class="dungeon-section">
-            <h2>Quest Log (Roadmap)</h2>
-            <div class="quest-grid">
-                <div class="quest-card complete">
-                    <span class="icon">✅</span>
-                    <h3>Dungeon Physics</h3>
-                    <p>Godot Engine movement and wall collisions.</p>
-                </div>
-                <div class="quest-card active">
-                    <span class="icon">⚔️</span>
-                    <h3>Combat System</h3>
-                    <p>Sword hitboxes and Card Soldier AI.</p>
-                </div>
-                <div class="quest-card locked">
-                    <span class="icon">🔒</span>
-                    <h3>The Royal Boss</h3>
-                    <p>Final encounter with the King of Hearts.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="download" class="final-cta">
-            <div class="torch-light">
-                <h2>Join the Adventure</h2>
-                <p>Available for Windows & Linux (Godot Export)</p>
-                <button id="downloadBtn" class="btn-mega">DOWNLOAD BUILD v0.1</button>
+                <button id="downloadBtn" class="btn-mega">DOWNLOAD v0.1</button>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>Built with <a href="https://godotengine.org/">Godot</a>. Hosted on GitHub Pages.</p>
+        <p>Built with Godot Engine • Hosted on GitHub Pages</p>
     </footer>
 
     <script src="js/main.js"></script>
