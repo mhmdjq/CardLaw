@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CardLaw | Official Site</title>
+    <title>King's Quest | Official Site</title>
     
     <link rel="icon" type="image/png" href="assets/favicon.png">
-
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Crimson+Text:wght@600&display=swap" rel="stylesheet">
     
     <style>
@@ -99,17 +98,27 @@
         .dungeon-box { border: 4px dashed var(--red-accent); padding: 40px; display: inline-block; background: rgba(168, 50, 50, 0.05); }
         .damage-num { font-family: var(--font-header); color: var(--red-accent); font-size: 1.5rem; display: block; margin: 10px 0; }
         
-        /* QR CODE STYLE */
-        .qr-container { margin-top: 30px; padding-top: 20px; border-top: 1px solid #333; }
-        .qr-img { width: 120px; border: 4px solid #fff; border-radius: 8px; margin-top: 10px; transition: transform 0.2s; }
-        .qr-img:hover { transform: scale(1.1); border-color: var(--gold); }
+        /* QR CODE DOUBLE STYLE */
+        .qr-section { margin-top: 40px; border-top: 1px solid #333; padding-top: 30px; }
+        .qr-row { 
+            display: flex; justify-content: center; gap: 50px; flex-wrap: wrap; 
+        }
+        .qr-item { text-align: center; }
+        .qr-text { 
+            color: var(--gold); font-family: var(--font-header); font-size: 0.7rem; margin-bottom: 15px; 
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+        .qr-img { 
+            width: 140px; border: 4px solid #fff; border-radius: 8px; transition: transform 0.2s; 
+        }
+        .qr-img:hover { transform: scale(1.1); border-color: var(--gold); box-shadow: 0 0 15px var(--gold); }
         
         footer { padding: 20px; text-align: center; background: #000; color: #666; font-size: 0.8rem; }
     </style>
 </head>
 <body>
     <nav>
-        <div class="logo">CARD<span class="highlight">LAW</span></div>
+        <div class="logo">KING'S<span class="highlight">QUEST</span></div>
         <ul class="nav-links">
             <li><a href="#video">Trailer</a></li>
             <li><a href="#features">Features</a></li>
@@ -118,8 +127,8 @@
     </nav>
     <header class="hero">
         <div class="hero-content">
-            <h1 class="pixel-title">THE JOKER <br><span class="fire-text">TRIAL</span></h1>
-            <p>Defeat the Corrupted Card Soldiers. Dethrone the Mad King.</p>
+            <h1 class="pixel-title">THE UNNAMED <br><span class="fire-text">ADVENTURE</span></h1>
+            <p>Defeat the Card Soldiers. Dethrone the Mad King.</p>
             <a href="#download" class="btn-gold">⚔️ START GAME</a>
         </div>
     </header>
@@ -135,11 +144,11 @@
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="sprite-container"><div class="sprite soldier-anim"></div></div>
-                    <h3>Fluid Combat</h3><p>Battle against the 10 Cards with precise hitboxes.</p>
+                    <h3>Fluid Combat</h3><p>Battle against the Queen's army with precise hitboxes.</p>
                 </div>
                 <div class="feature-card">
                     <div class="sprite-container"><div class="sprite jester-anim"></div></div>
-                    <h3>Unique Design</h3><p>Meet NPCs who are truly unique .</p>
+                    <h3>Dark Humor</h3><p>Meet NPCs who laugh in the face of danger.</p>
                 </div>
                 <div class="feature-card">
                     <div class="sprite-container"><div class="sprite king-anim"></div></div>
@@ -148,24 +157,31 @@
             </div>
         </section>
         <section id="download" class="section-final">
-            <div>
-                <div class="dungeon-box">
-                    <h2>Join the Beta</h2>
-                    <span class="damage-num">Global Damage: <span id="damage-counter">0</span></span>
-                    <br>
-                    <a id="downloadBtn" class="btn-mega" href="https://drive.google.com/drive/folders/1SLBGnJyn9k6urD4lJ_abN8x2zQgaxxlR" target="_blank">DOWNLOAD v0.1</a>
-                </div>
-            
-                <div class="qr-container">
-                    <h3>SCAN TO SHARE</h3>
-                    <img src="assets/qrcode.png" alt="Scan to Play" class="qr-img">
-                </div>    
-             </div>       
+            <div class="dungeon-box">
+                <h2>Join the Beta</h2>
+                <span class="damage-num">Global Damage: <span id="damage-counter">0</span></span>
+                <button id="downloadBtn" class="btn-mega">DOWNLOAD v0.1</button>
+            </div>
         </section>
     </main>
     
     <footer>
-        <p>Built with Godot Engine • Hosted on GitHub Pages</p>
+        <div class="qr-section">
+            <div class="qr-row">
+                
+                <div class="qr-item">
+                    <p class="qr-text">Download for PC</p>
+                    <img src="assets/qrcode_pc.png" alt="Scan for PC" class="qr-img">
+                </div>
+
+                <div class="qr-item">
+                    <p class="qr-text">Download for Mobile</p>
+                    <img src="assets/qrcode_mobile.png" alt="Scan for Mobile" class="qr-img">
+                </div>
+
+            </div>
+        </div>
+        <p style="margin-top: 30px;">Built with Godot Engine • Hosted on GitHub Pages</p>
     </footer>
 
     <script>
@@ -190,9 +206,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
