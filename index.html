@@ -22,6 +22,20 @@
         body { background-color: var(--bg-dark); color: #e0e0e0; font-family: var(--font-body); overflow-x: hidden; }
 
         /* --- BUTTONS FIXED --- */
+        
+        /* 1. The Big Red Download Button (Fixed Overlap) */
+        .btn-mega {
+            display: inline-block; /* CRITICAL FIX: Makes margin-top work */
+            background-color: var(--red-accent); color: #fff; padding: 20px 40px;
+            font-family: var(--font-header); font-size: 1.2rem; text-decoration: none;
+            border: none; cursor: pointer; 
+            margin-top: 30px; /* Space above button */
+            border-bottom: 8px solid #5e1b1b; border-radius: 8px; transition: all 0.1s;
+        }
+        .btn-mega:hover { background-color: #ff4d4d; transform: scale(1.05) translateY(-2px); box-shadow: 0 0 30px var(--red-accent); }
+        .btn-mega:active { transform: scale(1) translateY(6px); border-bottom: 2px solid #5e1b1b; }
+
+        /* 2. Gold Button */
         .btn-gold {
             background-color: var(--gold); color: #000; padding: 15px 30px;
             font-family: var(--font-header); text-decoration: none; display: inline-block;
@@ -31,18 +45,11 @@
         .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(255, 204, 0, 0.3); }
         .btn-gold:active { transform: translateY(4px); border-bottom: 2px solid var(--gold-dark); box-shadow: none; }
 
-        .btn-mega {
-            /* ✅ FIXED: Added inline-block so margins work on links */
-            display: inline-block; 
-            background-color: var(--red-accent); color: #fff; padding: 20px 40px;
-            font-family: var(--font-header); font-size: 1.2rem; text-decoration: none;
-            border: none; cursor: pointer; margin-top: 30px; /* Increased space */
-            border-bottom: 8px solid #5e1b1b; border-radius: 8px; transition: all 0.1s;
+        /* 3. Play Demo Nav Button */
+        .btn-nav { 
+            border: 2px solid var(--gold); padding: 8px 15px; color: var(--gold) !important; 
+            border-radius: 4px; transition: 0.2s; text-decoration: none; display: inline-block;
         }
-        .btn-mega:hover { background-color: #ff4d4d; transform: scale(1.05) translateY(-2px); box-shadow: 0 0 30px var(--red-accent); }
-        .btn-mega:active { transform: scale(1) translateY(6px); border-bottom: 2px solid #5e1b1b; }
-
-        .btn-nav { border: 2px solid var(--gold); padding: 8px 15px; color: var(--gold) !important; border-radius: 4px; transition: 0.2s; text-decoration: none;}
         .btn-nav:hover { background-color: var(--gold); color: #000 !important; box-shadow: 0 0 10px var(--gold); }
 
         /* --- SPRITES --- */
@@ -61,10 +68,18 @@
             display: flex; justify-content: space-between; align-items: center; padding: 20px 5%;
             background: #000; border-bottom: 2px solid var(--red-accent); position: sticky; top: 0; z-index: 100;
         }
-        .logo { font-family: var(--font-header); color: #fff; font-size: 1.2rem; }
+        
+        /* LOGO AS BUTTON STYLE */
+        .logo { 
+            font-family: var(--font-header); color: #fff; font-size: 1.2rem; 
+            text-decoration: none; /* Removes underline */
+            transition: transform 0.2s; display: inline-block;
+        }
+        .logo:hover { transform: scale(1.05); text-shadow: 0 0 10px var(--gold); }
         .highlight { color: var(--gold); }
+
         .nav-links { display: flex; gap: 20px; list-style: none; }
-        .nav-links a { color: #fff; text-decoration: none; font-weight: bold; }
+        .nav-links a { color: #fff; text-decoration: none; font-weight: bold; transition: color 0.2s; }
         .nav-links a:hover { color: var(--gold); }
 
         .hero {
@@ -109,17 +124,9 @@
         
         footer { padding: 20px; text-align: center; background: #000; color: #666; font-size: 0.8rem; }
 
-        /* --- MOBILE FIXES --- */
         @media (max-width: 600px) {
-            .btn-mega {
-                padding: 15px 20px; /* Smaller padding */
-                font-size: 0.9rem;  /* Smaller font */
-                width: 100%;        /* Full width on phone */
-            }
-            .dungeon-box {
-                padding: 20px;      /* Less container padding */
-                width: 100%;
-            }
+            .btn-mega { padding: 15px 20px; font-size: 0.9rem; width: 100%; }
+            .dungeon-box { padding: 20px; width: 100%; }
             .pixel-title { font-size: 1.5rem; }
             .nav-links { gap: 10px; font-size: 0.8rem; }
         }
@@ -127,7 +134,8 @@
 </head>
 <body>
     <nav>
-        <div class="logo">Card<span class="highlight">Law</span></div>
+        <a href="#" class="logo">Card<span class="highlight">Law</span></a>
+        
         <ul class="nav-links">
             <li><a href="#video">Trailer</a></li>
             <li><a href="#features">Features</a></li>
@@ -169,8 +177,9 @@
             <div class="dungeon-box">
                 <h2>Join the Beta</h2>
                 <span class="damage-num">Global Damage: <span id="damage-counter">0</span></span>
-                <!-- <br> -->
+                
                 <a href="downloads/your-game.zip" id="downloadBtn" class="btn-mega">DOWNLOAD v0.1</a>
+            
             </div>
         </section>
     </main>
@@ -198,11 +207,10 @@
             damageDisplay.innerText = window.damage;
 
             document.getElementById('downloadBtn').addEventListener('click', function(e) {
-                // We let the link work, but we still trigger the fun effect!
+                // Allows download to happen but triggers animation first
                 window.damage += 100;
                 damageDisplay.innerText = window.damage;
                 
-                // Optional: Change text briefly before download starts
                 this.innerText = "DOWNLOADING...";
                 this.style.backgroundColor = "#fff";
                 this.style.color = "#000";
